@@ -6,7 +6,7 @@ import gym
 import numpy as np
 import pygame
 
-from garage.misc.resolve import load_class
+from metaworlds.misc.resolve import load_class
 
 
 def sample_action(lb, ub):
@@ -53,7 +53,7 @@ def visualize_env(env, mode, max_steps=sys.maxsize, speedup=1):
             env.reset()
             env.render()
             tr = 0.
-            from garage.envs.box2d import Box2DEnv
+            from metaworlds.envs.box2d import Box2DEnv
             if isinstance(env, Box2DEnv):
                 for _ in range(max_steps):
                     pygame.event.pump()
@@ -68,8 +68,8 @@ def visualize_env(env, mode, max_steps=sys.maxsize, speedup=1):
                         env.reset()
                 return
 
-            from garage.envs.mujoco import MujocoEnv
-            from garage.envs.mujoco.maze import MazeEnv
+            from metaworlds.envs.mujoco import MujocoEnv
+            from metaworlds.envs.mujoco.maze import MazeEnv
             if isinstance(env, (MujocoEnv, MazeEnv)):
                 trs = [tr]
                 actions = [np.zeros(2)]
@@ -139,6 +139,6 @@ if __name__ == "__main__":
     parser.add_argument(
         '--max_steps', type=int, default=sys.maxsize, help='max steps')
     args = parser.parse_args()
-    env = load_class(args.env, gym.Env, ["garage", "envs"])()
+    env = load_class(args.env, gym.Env, ["metaworlds", "envs"])()
     visualize_env(
         env, mode=args.mode, max_steps=args.max_steps, speedup=args.speedup)
