@@ -21,5 +21,5 @@ class TestSwimmerEnv(unittest.TestCase):
         a_copy = a.copy()
         env.reset()
         env.step(a)
-        self.assertEquals(a.all(), a_copy.all())
+        self.assertEqual(a.all(), a_copy.all())
         env.close()

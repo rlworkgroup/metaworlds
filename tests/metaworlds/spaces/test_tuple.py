@@ -1,8 +1,8 @@
 import pickle
 import unittest
 
-from metaworlds.spaces.tuple import Tuple
-from metaworlds.tf.spaces import Discrete
+from metaworlds.spaces import Tuple
+from metaworlds.spaces import Discrete
 
 
 class TestTuple(unittest.TestCase):

@@ -58,4 +58,4 @@ class Discrete(Space):
         return hash(self.n)
 
     def new_tensor_variable(self, name, extra_dims):
-        raise NotImplementedError
+        return np.empty([0]* extra_dims + [self.flat_dim], dtype=np.uint8)

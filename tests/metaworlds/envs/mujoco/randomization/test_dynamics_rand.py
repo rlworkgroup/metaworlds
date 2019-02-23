@@ -1,5 +1,6 @@
 import io
 import unittest
+from unittest import mock
 
 from lxml import etree
 import numpy as np
@@ -81,7 +82,7 @@ class TestDynamicsRand(unittest.TestCase):
         randomized_vals = []
 
         for i in range(5):
-            with unittest.mock.patch(
+            with mock.patch(
                     'metaworlds.envs.mujoco.randomization.variation.Variations.'
                     'get_randomized_xml_model', self.create_randomized_xml):
                 randomized_env.reset()
@@ -123,7 +124,7 @@ class TestDynamicsRand(unittest.TestCase):
         randomized_vals = []
 
         for i in range(5):
-            with unittest.mock.patch(
+            with mock.patch(
                     'metaworlds.envs.mujoco.randomization.variation.Variations.'
                     'get_randomized_xml_model', self.create_randomized_xml):
                 randomized_env.reset()

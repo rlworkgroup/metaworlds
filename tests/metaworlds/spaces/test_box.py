@@ -17,7 +17,7 @@ class TestBox(unittest.TestCase):
 
     def test_same_dtype(self):
         type1 = np.float32
-        box = Box(low=0, high=255, shape=(3, 4), dtype=type1)
+        box = Box(low=0, high=1, shape=(3, 4), dtype=type1)
         assert box.dtype == type1
 
         type2 = np.uint8

@@ -69,6 +69,12 @@ class HillEnv(gym.Wrapper, Serializable):
         # Always call Serializable constructor last
         Serializable.quick_init(self, locals())
 
+    def step(self, action):
+        return self.env.step(action)
+
+    def reset(self):
+        return self.env.reset()
+
     def _get_lock_path(self):
         return os.path.join(self.hfield_dir, '.lock')
 

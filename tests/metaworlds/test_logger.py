@@ -25,11 +25,3 @@ class TestLogger(unittest.TestCase):
         logger.record_tabular_misc_stat("key", 1)
         if os.path.isfile("exp-log"):
             os.remove("exp-log")
-
-    def test_record_matplotlib(self):
-        fig = plt.figure()
-        ax = fig.gca()
-        xs = np.arange(10.0)
-        ys = np.random.rand(10)
-        ax.scatter(xs, ys)
-        logger.record_matplotlib("foo", fig)

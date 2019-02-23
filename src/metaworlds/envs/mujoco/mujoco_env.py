@@ -20,7 +20,7 @@ from metaworlds.misc.overrides import overrides
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
 MODEL_DIR = osp.abspath(
-    osp.join(osp.dirname(__file__), '../../../vendor/mujoco_models'))
+    osp.join(osp.dirname(__file__), '../../../../vendor/mujoco_models'))
 
 BIG = 1e6
 
