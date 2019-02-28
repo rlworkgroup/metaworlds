@@ -36,30 +36,34 @@ extras['dev'] = [
     'pep8-naming',
     'pre-commit',
     'pylint',
-    'pytest',
+    'pytest>=3.6',  # Required for pytest-cov on Python 3.6
     'pytest-cov',
     'sphinx',
+    'recommonmark',
     'yapf',
 ]
 
 with open('README.md') as f:
     readme = f.read()
 
-with open('LICENSE') as f:
-    license = f.read()
+# Get the package version dynamically
+exec(open('./src/metaworlds/__version__.py').read())
+version = __version__  # noqa: F821, pylint: disable=undefined-variable
 
 setup(
     name='metaworlds',
-    version='0.0.1dev',
+    version=version,
     author='Reinforcement Learning Working Group',
-    description='Environments for benchmarking meta-learning and multi-task learning',
+    description=(
+        'Environments for benchmarking meta-learning and multi-task learning'),
     url='https://github.com/rlworkgroup/metaworlds',
-    packages=find_packages(where="src"),
-    package_dir={"": "src"},
+    packages=find_packages(where='src'),
+    package_dir={'': 'src'},
     install_requires=required,
     extras_require=extras,
-    license=license,
+    license='MIT',
     long_description=readme,
+    long_description_context_type='text/markdown',
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
