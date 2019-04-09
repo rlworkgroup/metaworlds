@@ -5,6 +5,7 @@ from setuptools import setup
 required = [
     # Please keep alphabetized
     'cached_property',
+    # 'garage @ https://github.com/rlworkgroup/garage/archive/v2019.02.0.tar.gz',
     'gym',
     'numpy',
     'joblib',

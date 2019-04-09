@@ -1,0 +1,1 @@
+from metaworlds.benchmarks.point_mass_suite import PointMassSuite
