@@ -25,4 +25,4 @@ try:
 
 except KeyboardInterrupt:
     print("Exiting...")
-    env.close()
+    world.close()

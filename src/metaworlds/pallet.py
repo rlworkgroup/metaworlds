@@ -1,15 +1,17 @@
 import os
+import pathlib
 
 from dm_control.utils import io as resources
 
-_PALLET_DIR = os.path.join(os.path.dirname(__file__), 'external/pallet/')
+_PALLET_DIR = pathlib.Path(
+    os.environ.get('METAWORLDS_PALLET_DIR')).expanduser()
 
 _PALLET_ASSET_FILENAMES = [
     "./utils/basic_scene.xml",
 ]
 
 ASSETS = {
-    filename: resources.GetResource(os.path.join(_PALLET_DIR, filename))
+    filename: resources.GetResource(_PALLET_DIR / filename)
     for filename in _PALLET_ASSET_FILENAMES
 }
 

@@ -1,5 +1,3 @@
-import functools
-
 from dm_control import mjcf
 from dm_control.rl import control
 from dm_control.suite import point_mass
@@ -35,8 +33,8 @@ class PointMassWorld(ParametricWorld, DmControlEnv):
         self._pomdp = self.default_pomdp
         self._task = PointMassTask(False)
         physics = PointMassPhysics.from_pomdp(self._pomdp)
-        env = control.Environment(physics, self._task,
-                time_limit=point_mass._DEFAULT_TIME_LIMIT)
+        env = control.Environment(
+            physics, self._task, time_limit=point_mass._DEFAULT_TIME_LIMIT)
         DmControlEnv.__init__(self, env)
 
     @property
@@ -118,11 +116,7 @@ class PointMassTask(point_mass.PointMass):
     def get_reward(self, physics):
         """Replace dm_control's shaped reward with a simple L2 norm cost"""
         target_size = physics.named.model.geom_size['target', 0]
-        near_target = rewards.tolerance(
-            physics.mass_to_target_dist(),
-            bounds=(0, target_size),
-            margin=target_size)
-        return near_target
+        return -physics.mass_to_target_dist()
 
     def get_observation(self, physics):
         obs = super().get_observation(physics)
