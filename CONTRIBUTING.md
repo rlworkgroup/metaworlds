@@ -21,7 +21,6 @@ After following the standard metaworlds setup steps, make sure to run to install
 
 To setup pre-commit in your repo:
 ```sh
-conda activate metaworlds
 pre-commit install -t pre-commit
 pre-commit install -t pre-push
 pre-commit install -t commit-msg
