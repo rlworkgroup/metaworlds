@@ -18,7 +18,7 @@ required = [
 # Framework-specific dependencies
 extras = {
     'mujoco': [
-        'mujoco-py<1.50.2,>=1.50.1',
+        'mujoco-py<2.1,>=2.0',
         'lxml',
         'PyOpenGL',
     ],
