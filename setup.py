@@ -59,6 +59,7 @@ setup(
     url='https://github.com/rlworkgroup/metaworlds',
     packages=find_packages(where='src'),
     package_dir={'': 'src'},
+    python_requires='>=3.5',
     install_requires=required,
     extras_require=extras,
     license='MIT',
