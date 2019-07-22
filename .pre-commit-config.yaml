@@ -15,8 +15,7 @@ repos:
         files: \.py$
 
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v1.3.0
-    # https://github.com/pre-commit/pre-commit-hooks/blob/master/README.md
+    rev: v1.15.0
     hooks:
     -   id: check-added-large-files     # Prevent giant files from being committed.
     -   id: check-ast                   # Simply check whether files parse as valid python.
